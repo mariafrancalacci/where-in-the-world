@@ -7,10 +7,7 @@ import Card from "../components/Card/Card";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
-      <SearchBar />
-      <Card />
-      <Component {...pageProps} />{" "}
+      <Component {...pageProps} />
     </>
   );
 }

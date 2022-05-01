@@ -4,9 +4,9 @@ import Card from "../components/Card/Card";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import styles from "../styles/Home.module.css";
+import { Country } from "../types";
 
 const Home: NextPage = (props: any) => {
-  console.log({ props });
   return (
     <>
       <Header />

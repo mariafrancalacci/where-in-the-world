@@ -9,10 +9,10 @@ import { GetStaticPaths } from "next";
 
 export interface DetailsProps {
   data: Country;
-  res: Country;
 }
 
 const Details = ({ data }: DetailsProps) => {
+  console.log(data);
   return (
     <>
       <Header />
@@ -27,24 +27,28 @@ const Details = ({ data }: DetailsProps) => {
 
           <div className="flex flex-col pt-20 sm:items-start ">
             <Image
-              src="/project-1.jpg"
+              src={data.flag}
               width="300"
               height="200"
               className="flex-non object-cover w-full"
             />
             <div className="pb-10">
               <div className="flex flex-col gap-2">
-                <h1 className="font-bold pt-10 mb-4 text-lg">{data.name}</h1>
+                <h1 className="font-bold pt-10 mb-4 text-lg">
+                  {data.name} - Details
+                </h1>
                 <span>Native Name: {data.nativeName}</span>
                 <span>Population: {data.population}</span>
                 <span>Region: {data.region}</span>
-                <span>Sub Region:{data.subregion}</span>
-                <span>Capital:{data.capital}</span>
+                <span>Sub Region: {data.subregion}</span>
+                <span>Capital: {data.capital}</span>
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <span>Top Level Domain:{data.nativeName}</span>
+              <span>Top Level Domain: {data.nativeName}</span>
+              {/* <span>Currencies:{data.currencies}</span>
+              <span>Languages:{data.languages}</span> */}
             </div>
           </div>
         </div>
@@ -63,7 +67,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: data.map((country: Country) => {
-      return { params: { alpha3Code: String(country.alpha3Code) } };
+      return { params: { id: String(country.alpha3Code) } };
     }),
     fallback: false,
   };
@@ -72,11 +76,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async ({
   params,
 }: {
-  params: { alpha3Code: string };
+  params: { id: string };
 }) => {
-  const res = await fetch(
-    `https://restcountries.com/v2/alpha/${params.alpha3Code}`
-  );
+  const res = await fetch(`https://restcountries.com/v2/alpha/${params.id}`);
   const data = await res.json();
 
   return {

@@ -7,25 +7,31 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import styles from "../styles/Home.module.css";
 import { Country } from "../types";
 
-const Home: NextPage = (props: any) => {
+interface HomeProps {
+  data: Country[];
+}
+
+const Home: NextPage<HomeProps> = ({ data }) => {
   const [searchText, setSearchText] = useState("");
 
   return (
     <>
       <Header />
       <SearchBar setSearchText={setSearchText} />
-      {props.data.map((country: any) => {
-        return (
-          <Card
-            key={country}
-            imageUrl={country.flag}
-            population={country.population}
-            region={country.region}
-            capital={country.capital}
-            name={country.name}
-          />
-        );
-      })}
+      {data
+        .filter((c) => c.name.toUpperCase().includes(searchText.toUpperCase()))
+        .map((country: Country) => {
+          return (
+            <Card
+              key={country.name}
+              imageUrl={country.flag}
+              population={country.population}
+              region={country.region}
+              capital={country.capital || ""}
+              name={country.name}
+            />
+          );
+        })}
     </>
   );
 };

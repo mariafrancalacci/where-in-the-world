@@ -12,8 +12,8 @@ interface CardProps {
 
 const Card = ({ imageUrl, capital, population, region, name }: CardProps) => {
   return (
-    <Link href="/id">
-      <div className="sm:flex flex-col-4 sm:pl-">
+    <Link href="">
+      <div className="">
         <div className="bg-white mb-4 mr-20 ml-20 mt-20 flex flex-col rounded-lg shadow-md sm:mt-14 cursor-pointer">
           <Image
             src={imageUrl}

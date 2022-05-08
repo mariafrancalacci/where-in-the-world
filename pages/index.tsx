@@ -4,6 +4,7 @@ import { useState } from "react";
 import Card from "../components/Card/Card";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
+import SearchFilter from "../components/SearchFilter/SearchFilter";
 import styles from "../styles/Home.module.css";
 import { Country } from "../types";
 
@@ -13,13 +14,23 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ data }) => {
   const [searchText, setSearchText] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("");
 
   return (
     <>
       <Header />
       <SearchBar setSearchText={setSearchText} />
+      <SearchFilter
+        selectedRegion={selectedRegion}
+        setSelectedRegion={setSelectedRegion}
+      />
       {data
-        .filter((c) => c.name.toUpperCase().includes(searchText.toUpperCase()))
+        .filter((c) =>
+          selectedRegion === ""
+            ? true
+            : c.region === selectedRegion &&
+              c.name.toUpperCase().includes(searchText.toUpperCase())
+        )
         .map((country: Country) => {
           return (
             <Card

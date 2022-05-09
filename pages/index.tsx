@@ -19,30 +19,34 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   return (
     <>
       <Header />
-      <SearchBar setSearchText={setSearchText} />
-      <SearchFilter
-        selectedRegion={selectedRegion}
-        setSelectedRegion={setSelectedRegion}
-      />
-      {data
-        .filter((c) =>
-          selectedRegion === ""
-            ? true
-            : c.region === selectedRegion &&
-              c.name.toUpperCase().includes(searchText.toUpperCase())
-        )
-        .map((country: Country) => {
-          return (
-            <Card
-              key={country.name}
-              imageUrl={country.flag}
-              population={country.population}
-              region={country.region}
-              capital={country.capital || ""}
-              name={country.name}
-            />
-          );
-        })}
+      <div className="md:flex justify-between">
+        <SearchBar setSearchText={setSearchText} />
+        <SearchFilter
+          selectedRegion={selectedRegion}
+          setSelectedRegion={setSelectedRegion}
+        />
+      </div>
+      <div className="flex flex-col items-center justify-center content-start sm:items-start gap-16 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12 lg:gap-16s lg:ml-16 lg:mr-16 ">
+        {data
+          .filter((c) =>
+            selectedRegion === ""
+              ? true
+              : c.region === selectedRegion &&
+                c.name.toUpperCase().includes(searchText.toUpperCase())
+          )
+          .map((country: Country) => {
+            return (
+              <Card
+                key={country.name}
+                imageUrl={country.flag}
+                population={country.population}
+                region={country.region}
+                capital={country.capital || ""}
+                name={country.name}
+              />
+            );
+          })}
+      </div>
     </>
   );
 };

@@ -7,17 +7,24 @@ type SearchFilterProps = {
   setSelectedRegion: (text: string) => void;
 };
 
-const regions = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
+const regions = [
+  "Filter by Region",
+  "Africa",
+  "Americas",
+  "Asia",
+  "Europe",
+  "Oceania",
+];
 
 const SearchFilter = ({
   selectedRegion,
   setSelectedRegion,
 }: SearchFilterProps) => {
   return (
-    <div className="">
-      <div className="">
-        <FontAwesomeIcon icon={faChevronDown} className="text-primary" />
+    <div className="pt-16 pl-4 pr-4">
+      <div className="bg-white cursor-pointer w-48 shadow-sm">
         <select
+          className="p-5 "
           name="region"
           id="region"
           value={selectedRegion}

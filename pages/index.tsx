@@ -5,6 +5,7 @@ import Card from "../components/Card/Card";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import SearchFilter from "../components/SearchFilter/SearchFilter";
+import useTheme from "../hooks/useTheme";
 import styles from "../styles/Home.module.css";
 import { Country } from "../types";
 
@@ -15,7 +16,6 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ data }) => {
   const [searchText, setSearchText] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
-
   return (
     <>
       <Header />

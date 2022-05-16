@@ -6,8 +6,11 @@ import Link from "next/link";
 import useTheme from "../../hooks/useTheme";
 
 const Header = () => {
-  const [colorTheme, setTheme] = useTheme();
-  console.log({ colorTheme });
+  const { colorTheme, changeTheme } = useTheme();
+  const handleToggleTheme = () => {
+    console.log(colorTheme);
+    changeTheme(colorTheme === "light" ? "dark" : "light");
+  };
   return (
     <header className="bg-white dark:bg-cyan-400 flex justify-between shadow-sm px-4 py-10 sm:px-20 sm:py-5">
       <Link href="/">
@@ -16,10 +19,7 @@ const Header = () => {
         </h1>
       </Link>
 
-      <button
-        // onClick={() => setTheme(colorTheme === "light" ? "dark" : "light")}
-        className=""
-      >
+      <button onClick={handleToggleTheme}>
         <FontAwesomeIcon icon={SolidMoon} className="mr-2" />
         Dark Mode
       </button>

@@ -6,16 +6,21 @@ export default function useTheme() {
   );
   const colorTheme = theme === "dark" ? "light" : "dark";
 
-  useEffect(() => {
-    if(typeof window === 'undefined') return;
-    
-    const root = window.document.documentElement;
-    root.classList.remove(colorTheme);
-    root.classList.add(theme);
+  const changeTheme = (theme: any) => {
+    setTheme(theme)
+  }
 
-    // Save theme to Local Storage
-    localStorage.setItem("theme", theme);
+  useEffect(() => {
+    if(typeof window !== 'undefined') {
+        console.log("changing")
+        const root = window.document.documentElement;
+        root.classList.remove(colorTheme);
+        root.classList.add(theme);
+    
+        // Save theme to Local Storage
+        localStorage.setItem("theme", theme);
+    } else {console.log('undefined')}
   }, [theme, colorTheme]);
 
-  return [colorTheme, setTheme];
+  return {colorTheme, changeTheme};
 }

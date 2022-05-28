@@ -18,11 +18,6 @@ const Header = () => {
           Where in the world?
         </h1>
       </Link>
-
-      <button onClick={handleToggleTheme}>
-        <FontAwesomeIcon icon={SolidMoon} className="mr-2" />
-        Dark Mode
-      </button>
     </header>
   );
 };

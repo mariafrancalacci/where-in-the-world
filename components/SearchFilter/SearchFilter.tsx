@@ -21,7 +21,7 @@ const SearchFilter = ({
   setSelectedRegion,
 }: SearchFilterProps) => {
   return (
-    <div className="pt-16 pl-4 pr-4">
+    <div className="pt-16 pl-4 pr-6">
       <div className="bg-white cursor-pointer w-48 shadow-sm">
         <select
           className="p-5 "

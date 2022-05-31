@@ -1,24 +1,26 @@
-// export default function useTheme() {
-//   const [theme, setTheme] = useState<"light" | "dark">(
-//     typeof window !== "undefined" ? localStorage.theme : "light"
-//   );
-//   const colorTheme = theme === "dark" ? "light" : "dark";
+import { useEffect, useState } from "react";
 
-//   const changeTheme = (theme: any) => {
-//     setTheme(theme)
-//   }
+export default function useTheme() {
+  const [theme, setTheme] = useState<"light" | "dark">(
+    typeof window !== "undefined" ? localStorage.theme : "light"
+  );
+  const colorTheme = theme === "dark" ? "light" : "dark";
 
-//   useEffect(() => {
-//     if(typeof window !== 'undefined') {
-//         console.log("changing")
-//         const root = window.document.documentElement;
-//         root.classList.remove(colorTheme);
-//         root.classList.add(theme);
+  const changeTheme = (theme: any) => {
+    setTheme(theme)
+  }
+
+  useEffect(() => {
+    if(typeof window !== 'undefined') {
+        console.log("changing")
+        const root = window.document.documentElement;
+        root.classList.remove(colorTheme);
+        root.classList.add(theme);
     
-//         // Save theme to Local Storage
-//         localStorage.setItem("theme", theme);
-//     } else {console.log('undefined')}
-//   }, [theme, colorTheme]);
+        // Save theme to Local Storage
+        localStorage.setItem("theme", theme);
+    } else {console.log('undefined')}
+  }, [theme, colorTheme]);
 
-//   return {colorTheme, changeTheme};
-// }
+  return {colorTheme, changeTheme};
+}

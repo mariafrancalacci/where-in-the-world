@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Card from "../components/Card/Card";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
@@ -16,6 +16,24 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ data }) => {
   const [searchText, setSearchText] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
+
+  const filteredData = useMemo<Country[]>(() => {
+    let show = false;
+    if (
+      !selectedRegion ||
+      (selectedRegion === "Filter by Region" && !searchText)
+    ) {
+      show = true;
+    }
+    return data
+      .filter((c) =>
+        selectedRegion === "" || selectedRegion === "Filter by Region"
+          ? true
+          : c.region === selectedRegion
+      )
+      .filter((c) => c.name.toUpperCase().includes(searchText.toUpperCase()));
+  }, [data, selectedRegion, searchText]);
+
   return (
     <>
       <Header />
@@ -27,25 +45,19 @@ const Home: NextPage<HomeProps> = ({ data }) => {
         />
       </div>
       <div className="flex flex-col items-center justify-center content-start sm:items-start gap-16 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12 lg:gap-16s lg:ml-16 lg:mr-16 ">
-        {data
-          .filter((c) =>
-            selectedRegion === ""
-              ? true
-              : c.region === selectedRegion &&
-                c.name.toUpperCase().includes(searchText.toUpperCase())
-          )
-          .map((country: Country) => {
-            return (
-              <Card
-                key={country.name}
-                imageUrl={country.flag}
-                population={country.population}
-                region={country.region}
-                capital={country.capital || ""}
-                name={country.name}
-              />
-            );
-          })}
+        {filteredData.map((country: Country) => {
+          return (
+            <Card
+              key={country.name}
+              imageUrl={country.flag}
+              population={country.population}
+              region={country.region}
+              capital={country.capital || ""}
+              name={country.name}
+              id={country.alpha3Code}
+            />
+          );
+        })}
       </div>
     </>
   );

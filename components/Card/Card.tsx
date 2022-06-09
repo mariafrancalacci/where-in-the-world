@@ -8,11 +8,19 @@ interface CardProps {
   population: number;
   region: string;
   capital: string;
+  id: string;
 }
 
-const Card = ({ imageUrl, capital, population, region, name }: CardProps) => {
+const Card = ({
+  imageUrl,
+  capital,
+  population,
+  region,
+  name,
+  id,
+}: CardProps) => {
   return (
-    <Link href="">
+    <Link href={`/country/${id}`}>
       <div className="bg-white lg:mb-4 lg:mr-8 lg:ml-8 mt-20 flex flex-col rounded-lg shadow-md sm:mt-14 cursor-pointer">
         <Image
           src={imageUrl}

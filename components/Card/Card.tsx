@@ -28,8 +28,8 @@ const Card = ({
           height="200"
           className="flex-non rounded-t-lg object-cover w-full"
         />
-        <div className="flex flex-col gap-1 items-left px-8 py-4 pb-10">
-          <h1 className="font-bold mb-4 text-lg ">{name}</h1>
+        <div className="flex flex-col gap-1 font-sans font-bold items-left px-8 py-4 pb-10">
+          <h1 className="font-bold font-sans mb-4 text-lg ">{name}</h1>
           <span>Population: {population}</span>
           <span>Region: {region}</span>
           <span>Capital: {capital}</span>

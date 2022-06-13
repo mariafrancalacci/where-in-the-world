@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="bg-white dark:bg-cyan-400 flex justify-between shadow-sm px-4 py-10 sm:px-20 sm:py-5">
       <Link href="/">
-        <h1 className="cursor-pointer font-bold text-lg  ">
+        <h1 className="cursor-pointer font-sans font-bold text-lg  ">
           Where in the world?
         </h1>
       </Link>

@@ -21,18 +21,27 @@ const Card = ({
 }: CardProps) => {
   return (
     <Link href={`/country/${id}`}>
-      <div className="bg-white lg:mb-4 lg:mr-8 lg:ml-8 mt-20 flex flex-col rounded-lg shadow-md sm:mt-14 cursor-pointer">
+      <div className="mt-12 rounded-lg shadow-lg bg-white pb-4 cursor-pointer">
         <Image
           src={imageUrl}
           width="350"
           height="200"
-          className="flex-non rounded-t-lg object-cover w-full"
+          className="flex-non rounded-t-md object-cover w-full"
         />
-        <div className="flex flex-col gap-1 font-sans font-bold items-left px-8 py-4 pb-10">
-          <h1 className="font-bold font-sans mb-4 text-lg ">{name}</h1>
-          <span>Population: {population}</span>
-          <span>Region: {region}</span>
-          <span>Capital: {capital}</span>
+        <div className="p-6">
+          <h3 className="font-bold mb-4">{name}</h3>
+          <p className="text-xs font-bold">
+            Population:
+            <span className="text-gray-700 pl-1 font-normal">{population}</span>
+          </p>
+          <p className="text-xs font-bold">
+            Region:
+            <span className="text-gray-700 pl-1 font-normal">{region}</span>
+          </p>
+          <p className="text-xs font-bold">
+            Capital:
+            <span className="text-gray-700 pl-1 font-normal">{capital}</span>
+          </p>
         </div>
       </div>
     </Link>

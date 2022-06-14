@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Country } from "../../types";
 import { GetStaticPaths } from "next";
+import Border from "../../components/Border/Border";
 
 export interface DetailsProps {
   data: Country;
@@ -17,38 +18,95 @@ const Details = ({ data }: DetailsProps) => {
     <>
       <Header />
       <div>
-        <div className="px-4 pt-12 sm:px-24 h-screen">
+        <div className="px-12 sm:px-16 pt-12 h-screen ">
           <Link href="/">
-            <button className="shadow-lg bg-white px-7 py-2 flex justify-between items-center">
+            <button
+              className="px-8 py-2 mb-16 bg-white 
+             shadow-md rounded-lg"
+            >
               <FontAwesomeIcon className="mr-4" icon={faArrowLeft} />
               <span>Back</span>
             </button>
           </Link>
 
-          <div className="flex flex-col pt-20 sm:items-start ">
+          <div className="grid grid-cols-2">
             <Image
               src={data.flag}
-              width="300"
-              height="200"
+              width="500"
+              height="300"
               className="flex-non object-cover w-full"
             />
-            <div className="pb-10">
-              <div className="flex flex-col gap-2">
-                <h1 className="font-bold pt-10 mb-4 text-lg">
-                  {data.name} - Details
-                </h1>
-                <span>Native Name: {data.nativeName}</span>
-                <span>Population: {data.population}</span>
-                <span>Region: {data.region}</span>
-                <span>Sub Region: {data.subregion}</span>
-                <span>Capital: {data.capital}</span>
-              </div>
-            </div>
+            <div className="pb-10  pl-20 flex-col">
+              <h1 className="font-semibold pt-10 mb-4 text-lg">
+                {data.name} - Details
+              </h1>
+              <div className="grid grid-cols-2 gap-2 align-baseline">
+                <div>
+                  <p className="text-xs font-semibold">
+                    Native Name:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data.nativeName}
+                    </span>
+                  </p>
+                  <p className="text-xs font-semibold">
+                    Population:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data.population}
+                    </span>
+                  </p>
+                  <p className="text-xs font-semibold">
+                    Region:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data.region}
+                    </span>
+                  </p>
+                  <p className="text-xs font-semibold">
+                    Sub Region:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data.subregion}
+                    </span>
+                  </p>
+                  <p className="text-xs font-semibold">
+                    Capital:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data.capital}
+                    </span>
+                  </p>
+                </div>
 
-            <div className="flex flex-col gap-2">
-              <span>Top Level Domain: {data.nativeName}</span>
-              {/* <span>Currencies:{data.currencies}</span>
-              <span>Languages:{data.languages}</span> */}
+                <div>
+                  <p className="text-xs font-semibold">
+                    Top Level Domain:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data?.topLevelDomain.join(",")}
+                    </span>
+                  </p>
+                  <p className="text-xs font-semibold">
+                    Currencies:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data?.currencies?.map((c) => c.code).join(",")}
+                    </span>
+                  </p>
+                  <p className="text-xs font-semibold">
+                    Languages:
+                    <span className="text-gray-700 pl-1 font-normal">
+                      {data?.languages?.map((l) => l.name).join(",")}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="pb-12 md:pb-0 flex sm:flex-row gap-2">
+                <p className="text-xs font-semibold ">Border Countries:</p>
+                <span className="flex flex-row gap-2 ">
+                  {data.borders ? (
+                    data.borders?.map((b) => <Border key={b} border={b} />)
+                  ) : (
+                    <p className="text-gray-700 font-normal text-xs">
+                      No border
+                    </p>
+                  )}
+                </span>
+              </div>
             </div>
           </div>
         </div>

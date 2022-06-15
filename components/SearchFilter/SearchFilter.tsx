@@ -21,10 +21,10 @@ const SearchFilter = ({
   setSelectedRegion,
 }: SearchFilterProps) => {
   return (
-    <div className="pt-10 pl-4 pr-8">
-      <div className="bg-white cursor-pointer w-48 ">
+    <div className="pt-8 mt-2 pl-4 pr-5">
+      <div className="bg-white cursor-pointer w-48">
         <select
-          className="p-4 font-sans shadow-md  "
+          className="pb-4 pt-5 pl-4 pr-4 font-sans shadow-md "
           name="region"
           id="region"
           value={selectedRegion}

@@ -35,7 +35,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   }, [data, selectedRegion, searchText]);
 
   return (
-    <>
+    <div className="bg-slate-50">
       <Header />
       <div className="md:flex justify-between">
         <SearchBar setSearchText={setSearchText} />
@@ -44,7 +44,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
           setSelectedRegion={setSelectedRegion}
         />
       </div>
-      <div className="flex flex-col items-center justify-center content-start sm:items-start gap-16 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12 lg:gap-16s lg:ml-16 lg:mr-16 ">
+      <div className="flex flex-col items-center justify-center content-start sm:items-start gap-16 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12 lg:gap-16s lg:ml-14 lg:mr-16 ">
         {filteredData.map((country: Country) => {
           return (
             <Card
@@ -59,7 +59,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

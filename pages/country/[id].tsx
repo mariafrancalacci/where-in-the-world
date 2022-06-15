@@ -29,44 +29,44 @@ const Details = ({ data }: DetailsProps) => {
             </button>
           </Link>
 
-          <div className="grid grid-cols-2">
+          <div className="grid md:grid-cols-2 gap-y-5 ">
             <Image
               src={data.flag}
               width="500"
               height="300"
               className="flex-non object-cover w-full"
             />
-            <div className="pb-10  pl-20 flex-col">
-              <h1 className="font-semibold pt-10 mb-4 text-lg">
-                {data.name} - Details
+            <div className="pb-10 flex-col md:pl-20">
+              <h1 className="font-bold pt-6 md:pt-10 pb-6 text-xl">
+                {data.name}
               </h1>
-              <div className="grid grid-cols-2 gap-2 align-baseline">
+              <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 pb-2 align-baseline">
                 <div>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pb-3 font-semibold">
                     Native Name:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.nativeName}
                     </span>
                   </p>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pb-3 font-semibold">
                     Population:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.population}
                     </span>
                   </p>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pb-3 font-semibold">
                     Region:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.region}
                     </span>
                   </p>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pb-3 font-semibold">
                     Sub Region:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.subregion}
                     </span>
                   </p>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pb-3 font-semibold">
                     Capital:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.capital}
@@ -75,19 +75,19 @@ const Details = ({ data }: DetailsProps) => {
                 </div>
 
                 <div>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pt-8 md:pt-6 pb-3 font-semibold">
                     Top Level Domain:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data?.topLevelDomain.join(",")}
                     </span>
                   </p>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pb-3 font-semibold">
                     Currencies:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data?.currencies?.map((c) => c.code).join(",")}
                     </span>
                   </p>
-                  <p className="text-xs font-semibold">
+                  <p className="text-xs pb-3 font-semibold">
                     Languages:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data?.languages?.map((l) => l.name).join(",")}
@@ -95,13 +95,15 @@ const Details = ({ data }: DetailsProps) => {
                   </p>
                 </div>
               </div>
-              <div className="pb-12 md:pb-0 flex sm:flex-row gap-2">
-                <p className="text-xs font-semibold ">Border Countries:</p>
+              <div className="md:pt-16 md:pb-0 md:flex-row gap-2">
+                <p className="text-sm font-semibold pt-1.5 pb-3 ">
+                  Border Countries:
+                </p>
                 <span className="flex flex-row gap-2 ">
                   {data.borders ? (
                     data.borders?.map((b) => <Border key={b} border={b} />)
                   ) : (
-                    <p className="text-gray-700 font-normal text-xs">
+                    <p className="text-gray-700 pt-3 font-normal text-xs">
                       No border
                     </p>
                   )}

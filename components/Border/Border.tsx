@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface BorderProps {
   border: string;
@@ -6,9 +6,11 @@ interface BorderProps {
 
 const Border = ({ border }: BorderProps) => {
   return (
-    <div className="transition duration-300 ease-in-out cursor-pointer transform hover:scale-110 px-8 py-2 text-xs bg-elements shadow-lg text-primary sm:flex-row">
-      <span>{border}</span>
-    </div>
+    <Link href={`/country/${border}`}>
+      <button className="transition duration-300 ease-in-out cursor-pointer border-2 border-slate-200 transform hover:scale-110 px-8 py-1 text-xs bg-elements shadow-md rounded-sm text-primary md:flex-row ">
+        <span className="text-gray-700 font-normal">{border}</span>
+      </button>
+    </Link>
   );
 };
 

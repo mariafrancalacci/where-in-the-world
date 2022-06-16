@@ -18,7 +18,7 @@ const Details = ({ data }: DetailsProps) => {
     <>
       <Header />
       <div>
-        <div className="px-10 pt-12 h-screen ">
+        <div className="px-10 md:px-12 pt-12 h-screen ">
           <Link href="/">
             <button
               className="px-8 py-2 mb-16 bg-white 

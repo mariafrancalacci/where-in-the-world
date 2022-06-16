@@ -22,7 +22,7 @@ const SearchFilter = ({
 }: SearchFilterProps) => {
   return (
     <div className="pt-8 mt-2 pl-4 pr-5">
-      <div className="bg-white cursor-pointer w-48">
+      <div className="cursor-pointer w-48">
         <select
           className="pb-4 pt-5 pl-4 pr-4 font-sans shadow-md "
           name="region"

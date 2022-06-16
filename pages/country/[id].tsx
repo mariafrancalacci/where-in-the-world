@@ -18,7 +18,7 @@ const Details = ({ data }: DetailsProps) => {
     <>
       <Header />
       <div>
-        <div className="px-12 sm:px-16 pt-12 h-screen ">
+        <div className="px-10 pt-12 h-screen ">
           <Link href="/">
             <button
               className="px-8 py-2 mb-16 bg-white 
@@ -34,8 +34,9 @@ const Details = ({ data }: DetailsProps) => {
               src={data.flag}
               width="500"
               height="300"
-              className="flex-non object-cover w-full"
+              className="object-cover"
             />
+
             <div className="pb-10 flex-col md:pl-20">
               <h1 className="font-bold pt-6 md:pt-10 pb-6 text-xl">
                 {data.name}

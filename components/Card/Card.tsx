@@ -21,7 +21,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <Link href={`/country/${id}`}>
-      <div className="mt-12 rounded-lg shadow-lg bg-white pb-4 cursor-pointer">
+      <div className="mt-12 rounded-lg shadow-lg bg-white pb-4 cursor-pointer transition duration-300 ease-in-out cursor-pointer transform hover:scale-101 hover:shadow-2xl  ">
         <Image
           src={imageUrl}
           width="350"

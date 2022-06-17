@@ -6,15 +6,10 @@ import Link from "next/link";
 import useTheme from "../../hooks/useTheme";
 
 const Header = () => {
-  const { colorTheme, changeTheme } = useTheme();
-  const handleToggleTheme = () => {
-    console.log(colorTheme);
-    changeTheme(colorTheme === "light" ? "dark" : "light");
-  };
   return (
-    <header className="bg-white dark:bg-cyan-400 flex justify-between shadow-sm px-4 sm:px-6 md:px-16 py-5">
+    <header className="bg-elements flex justify-between px-4 py-8 shadow sm:px-24 sm:py-6">
       <Link href="/">
-        <h1 className="cursor-pointer font-sans font-bold text-lg  ">
+        <h1 className="transition duration-300 ease-in-out cursor-pointer transform hover:scale-125 text-primary font-bold sm:text-lg">
           Where in the world?
         </h1>
       </Link>

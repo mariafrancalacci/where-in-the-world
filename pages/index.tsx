@@ -37,27 +37,29 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   return (
     <div className="bg-slate-50">
       <Header />
-      <div className="md:flex justify-between">
-        <SearchBar setSearchText={setSearchText} />
-        <SearchFilter
-          selectedRegion={selectedRegion}
-          setSelectedRegion={setSelectedRegion}
-        />
-      </div>
-      <div className="flex flex-col items-center justify-center content-start sm:items-start gap-16 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12 lg:gap-16s lg:ml-14 lg:mr-16 ">
-        {filteredData.map((country: Country) => {
-          return (
-            <Card
-              key={country.name}
-              imageUrl={country.flag}
-              population={country.population}
-              region={country.region}
-              capital={country.capital || ""}
-              name={country.name}
-              id={country.alpha3Code}
-            />
-          );
-        })}
+      <div className="px-4 sm:px-24 ">
+        <div className="md:flex justify-between">
+          <SearchBar setSearchText={setSearchText} />
+          <SearchFilter
+            selectedRegion={selectedRegion}
+            setSelectedRegion={setSelectedRegion}
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center content-start sm:items-start gap-16 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12 lg:gap-16s lg:ml-14 lg:mr-16 ">
+          {filteredData.map((country: Country) => {
+            return (
+              <Card
+                key={country.name}
+                imageUrl={country.flag}
+                population={country.population}
+                region={country.region}
+                capital={country.capital || ""}
+                name={country.name}
+                id={country.alpha3Code}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

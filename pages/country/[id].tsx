@@ -17,57 +17,59 @@ const Details = ({ data }: DetailsProps) => {
   return (
     <>
       <Header />
-      <div>
-        <div className="px-10 md:px-12 pt-12 h-screen ">
+      <div className="px-4 sm:px-24 h-screen">
+        <div className="pt-10 pb-12 flex ">
           <Link href="/">
             <button
-              className="px-8 py-2 mb-16 bg-white 
-             shadow-md rounded-lg"
+              className="shadow-lg bg-elements focus:outline-none px-6 py-1 text-primary flex justify-between items-center bg-white 
+             "
             >
-              <FontAwesomeIcon className="mr-4" icon={faArrowLeft} />
+              <FontAwesomeIcon className="mr-3" icon={faArrowLeft} />
               <span>Back</span>
             </button>
           </Link>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-y-5 ">
-            <Image
-              src={data.flag}
-              width="500"
-              height="300"
-              className="object-cover"
-            />
+        <div className="md:flex md:items-start">
+          <img
+            src={data.flag}
+            width="500"
+            height="300"
+            className="object-cover"
+          />
 
-            <div className="pb-10 flex-col md:pl-20">
-              <h1 className="font-bold pt-6 md:pt-10 pb-6 text-xl">
+          <div className="xl:pl-32 md:pl-10 md:pl-10 sm:pt-6">
+            <div>
+              <h1 className="font-bold text-xl md:text-2xl pt-8 pb-6 md:pt-0">
                 {data.name}
               </h1>
-              <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 pb-2 align-baseline">
-                <div>
-                  <p className="text-xs pb-3 font-semibold">
+              <div className="md:flex md:mb-8 md:gap-x-[200px]">
+                <div className="flex flex-col gap-3 mb-4 md:mb-0">
+                  <p className="text-xs  font-semibold">
                     Native Name:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.nativeName}
                     </span>
                   </p>
-                  <p className="text-xs pb-3 font-semibold">
+                  <p className="text-xs  font-semibold">
                     Population:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.population}
                     </span>
                   </p>
-                  <p className="text-xs pb-3 font-semibold">
+                  <p className="text-xs  font-semibold">
                     Region:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.region}
                     </span>
                   </p>
-                  <p className="text-xs pb-3 font-semibold">
+                  <p className="text-xs  font-semibold">
                     Sub Region:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.subregion}
                     </span>
                   </p>
-                  <p className="text-xs pb-3 font-semibold">
+                  <p className="text-xs  font-semibold">
                     Capital:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data.capital}
@@ -75,20 +77,20 @@ const Details = ({ data }: DetailsProps) => {
                   </p>
                 </div>
 
-                <div>
-                  <p className="text-xs pt-8 md:pt-6 pb-3 font-semibold">
+                <div className="flex flex-col gap-3 mb-12 md:mb-0">
+                  <p className="text-xs pt-8 md:pt-0  font-semibold">
                     Top Level Domain:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data?.topLevelDomain.join(",")}
                     </span>
                   </p>
-                  <p className="text-xs pb-3 font-semibold">
+                  <p className="text-xs  font-semibold">
                     Currencies:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data?.currencies?.map((c) => c.code).join(",")}
                     </span>
                   </p>
-                  <p className="text-xs pb-3 font-semibold">
+                  <p className="text-xs  font-semibold">
                     Languages:
                     <span className="text-gray-700 pl-1 font-normal">
                       {data?.languages?.map((l) => l.name).join(",")}
@@ -96,20 +98,15 @@ const Details = ({ data }: DetailsProps) => {
                   </p>
                 </div>
               </div>
-              <div className="md:pt-16 md:pb-0 md:flex-row gap-2">
-                <p className="text-sm font-semibold pt-1.5 pb-3 ">
-                  Border Countries:
-                </p>
-                <span className="flex flex-row gap-2 ">
-                  {data.borders ? (
-                    data.borders?.map((b) => <Border key={b} border={b} />)
-                  ) : (
-                    <p className="text-gray-700 pt-3 font-normal text-xs">
-                      No border
-                    </p>
-                  )}
-                </span>
-              </div>
+            </div>
+            <div className="pb-12 md:pb-0 md:pt-0 flex-row-2 md:inline-flex md:flex-wrap gap-2 md:w-[750px] ">
+              <p className="text-sm font-semibold ">Border Countries:</p>
+
+              {data.borders ? (
+                data.borders?.map((b) => <Border key={b} border={b} />)
+              ) : (
+                <p className="text-gray-700 font-normal text-xs">No border</p>
+              )}
             </div>
           </div>
         </div>

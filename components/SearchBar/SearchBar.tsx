@@ -8,16 +8,16 @@ type SearchProps = {
 
 const SearchBar = ({ setSearchText }: SearchProps) => {
   return (
-    <div className="w-full pt-7 sm:max-w-[38%] md:pl-10 pt-10">
-      <div className="bg-white ml-4 mr-4 pl-6 pr-6 pt-5 pb-5 shadow-md flex items-center rounded-sm pt-4 pb-4 ">
-        <FontAwesomeIcon icon={faSearch} className="pr-4" />
-        <input
-          type="text"
-          placeholder="Search for a country..."
-          className="font-sans w-full"
-          onChange={(event) => setSearchText(event.target.value)}
-        ></input>
+    <div className="w-full relative  pt-6 pb-10 sm:w-full sm:col-span-6 sm:col-span-5 sm:pt-10">
+      <div className="absolute inset-y-0 left-0 pl-6 pb-6 sm:pb-1 flex items-center pointer-events-none">
+        <FontAwesomeIcon icon={faSearch} className="text-input" />
       </div>
+      <input
+        onChange={(e) => setSearchText(e.target.value)}
+        placeholder="Search for a country..."
+        className="bg-elements text-input shadow-md rounded-md w-full pl-16 py-4 placeholder-input"
+        type="text"
+      ></input>
     </div>
   );
 };

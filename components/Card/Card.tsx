@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 interface CardProps {
@@ -21,27 +20,26 @@ const Card = ({
 }: CardProps) => {
   return (
     <Link href={`/country/${id}`}>
-      <div className="mt-12 rounded-lg shadow-lg bg-white pb-4 cursor-pointer transition duration-300 ease-in-out cursor-pointer transform hover:scale-101 hover:shadow-2xl  ">
-        <Image
-          src={imageUrl}
-          width="350"
-          height="200"
-          className="flex-non rounded-t-md object-cover w-full"
-        />
-        <div className="p-6">
-          <h3 className="font-bold mb-4">{name}</h3>
-          <p className="text-xs font-bold">
-            Population:
-            <span className="text-gray-700 pl-1 font-normal">{population}</span>
-          </p>
-          <p className="text-xs font-bold">
-            Region:
-            <span className="text-gray-700 pl-1 font-normal">{region}</span>
-          </p>
-          <p className="text-xs font-bold">
-            Capital:
-            <span className="text-gray-700 pl-1 font-normal">{capital}</span>
-          </p>
+      <div className="mb-4 bg-white last:mb-0 sm:mb-0 transition duration-300 ease-in-out cursor-pointer transform hover:scale-101 hover:shadow-2xl  w-9/12 sm:w-full flex flex-col items-center rounded-md overflow-hidden shadow-md">
+        <img src={imageUrl} className="flex-none h-40 object-cover w-full" />
+        <div className=" flex-grow w-full px-6 pt-6 pb-10 text-primary">
+          <h3 className="font-bold text-base mb-4">{name}</h3>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs font-bold">
+              Population:
+              <span className="text-gray-700 pl-1 font-normal">
+                {population}
+              </span>
+            </p>
+            <p className="text-xs font-bold">
+              Region:
+              <span className="text-gray-700 pl-1 font-normal">{region}</span>
+            </p>
+            <p className="text-xs font-bold">
+              Capital:
+              <span className="text-gray-700 pl-1 font-normal">{capital}</span>
+            </p>
+          </div>
         </div>
       </div>
     </Link>

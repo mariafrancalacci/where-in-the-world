@@ -5,8 +5,6 @@ import Card from "../components/Card/Card";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import SearchFilter from "../components/SearchFilter/SearchFilter";
-import useTheme from "../hooks/useTheme";
-import styles from "../styles/Home.module.css";
 import { Country } from "../types";
 
 interface HomeProps {
@@ -37,15 +35,15 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   return (
     <div className="bg-slate-50">
       <Header />
-      <div className="px-4 sm:px-24 ">
-        <div className="md:flex justify-between">
+      <div className="px-4 sm:px-24">
+        <div className="sm:grid sm:grid-cols-12 sm:gap-4 sm:content-center items-center mb-8 sm:mb-0">
           <SearchBar setSearchText={setSearchText} />
           <SearchFilter
             selectedRegion={selectedRegion}
             setSelectedRegion={setSelectedRegion}
           />
         </div>
-        <div className="flex flex-col items-center justify-center content-start sm:items-start gap-16 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12 lg:gap-16s lg:ml-14 lg:mr-16 ">
+        <div className="flex flex-col sm:items-start items-center justify-center gap-16 sm:grid sm:grid-cols-2 content-start lg:grid-cols-4 sm:gap-12">
           {filteredData.map((country: Country) => {
             return (
               <Card

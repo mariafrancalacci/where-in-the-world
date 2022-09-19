@@ -7,7 +7,7 @@ import useTheme from "../../hooks/useTheme";
 
 const Header = () => {
   return (
-    <header className="bg-elements flex justify-between px-4 py-8 shadow sm:px-24 sm:py-6">
+    <header className="bg-white flex justify-between px-4 py-8 shadow-sm sm:px-24 sm:py-6">
       <Link href="/">
         <h1 className="transition duration-300 ease-in-out cursor-pointer transform hover:scale-125 text-primary font-bold sm:text-lg">
           Where in the world?

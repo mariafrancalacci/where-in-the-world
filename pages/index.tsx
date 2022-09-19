@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useMemo, useState } from "react";
 import Card from "../components/Card/Card";
 import Header from "../components/Header/Header";
@@ -33,7 +32,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   }, [data, selectedRegion, searchText]);
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-[#FAFAFA]">
       <Header />
       <div className="px-4 sm:px-24">
         <div className="sm:grid sm:grid-cols-12 sm:gap-4 sm:content-center items-center mb-8 sm:mb-0">

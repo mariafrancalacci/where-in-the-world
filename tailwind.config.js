@@ -1,8 +1,10 @@
 module.exports = {
   content: ["./components/**/*.tsx", "./pages/**/*.tsx"],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ["Nunito Sans", "sans-serif"],
+    },
   },
   plugins: [],
-}
+};

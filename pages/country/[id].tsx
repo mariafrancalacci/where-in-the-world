@@ -17,11 +17,11 @@ const Details = ({ data }: DetailsProps) => {
   return (
     <>
       <Header />
-      <div className="px-4 sm:px-24 h-screen">
+      <div className="px-4 sm:px-24 h-screen ">
         <div className="pt-10 pb-12 flex ">
           <Link href="/">
             <button
-              className="shadow-lg bg-elements focus:outline-none px-6 py-1 text-primary flex justify-between items-center bg-white 
+              className="shadow-md focus:outline-none px-8 py-2 text-primary flex justify-between items-center bg-white rounded-md 
              "
             >
               <FontAwesomeIcon className="mr-3" icon={faArrowLeft} />
@@ -105,7 +105,9 @@ const Details = ({ data }: DetailsProps) => {
               {data.borders ? (
                 data.borders?.map((b) => <Border key={b} border={b} />)
               ) : (
-                <p className="text-gray-700 font-normal text-xs">No border</p>
+                <p className="text-gray-700 font-normal pt-1 text-xs">
+                  No border
+                </p>
               )}
             </div>
           </div>
